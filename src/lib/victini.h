@@ -22,7 +22,7 @@ __VI_NOLOG: Disables all Victini logging
 
 typedef unsigned long long size_t;
 
-#define RET_SUCCESS 0
+#define VI_SUCCESS 0
 
 #define VI_NAMESPACE_BEGIN namespace vi {
 #define VI_NAMESPACE_END };
@@ -130,8 +130,10 @@ if(! (expr) ) {\
     exit(EXIT_FAILURE);\
 }
 #else
-#define VI_CHECK
+#define VI_CHECK(result, msg)
 #define VI_STATIC_ASSERT(expr, msg)
 #endif //_DEBUG
+
+#define VI_ISOK(result) result == VI_SUCCESS
 
 #endif // VICTINI_H
